@@ -514,7 +514,11 @@ p {
 ---------------------------------- */
 /* line 9, ../sass/layouts/_website.scss */
 html {
-  background-color: #333;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2a2a2a), color-stop(100%, #000000));
+  background: -webkit-linear-gradient(#2a2a2a, #000000);
+  background: -moz-linear-gradient(#2a2a2a, #000000);
+  background: -o-linear-gradient(#2a2a2a, #000000);
+  background: linear-gradient(#2a2a2a, #000000);
 }
 
 /* line 17, ../sass/layouts/_website.scss */

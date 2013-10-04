@@ -7,7 +7,7 @@
 
 ---------------------------------- */
 html {
-  background-color: #333;
+  @include background(linear-gradient(#2A2A2A, black));
 }
 
 body {
