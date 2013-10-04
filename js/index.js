@@ -11,24 +11,25 @@ function(be, world, GlobalHeader, ProgressBar) {
 	'use strict';
 
 	var searchTerm = 'nsfw';
-	var header = new GlobalHeader();
-	header.on('submitted', function (value) { searchTerm = value; doSearch(searchTerm); });
-  
-  var progress = new ProgressBar()
+  var progress = null;
 
 	be("M55FPXPyfvChqq8GQ1TBopL8fH4cpCyd");
 
-	function doSearch (term) {
-    progress.start()
-    
-		be.project.search(term)
-		.then(function(data) {
-      progress.finish()
-			console.log('results', data);
-		});
-	}
-
 	function init() {
+  	var header = new GlobalHeader();
+  	header.on('submitted', function (value) { searchTerm = value; doSearch(searchTerm); });
+    var progress = new ProgressBar()
+    
+  	function doSearch (term) {
+      progress.start()
+    
+  		be.project.search(term)
+  		.then(function(data) {
+        progress.finish()
+  			console.log('results', data);
+  		});
+  	}
+    
 		world.init(document.querySelector('.map'));
 
 		doSearch(searchTerm);
