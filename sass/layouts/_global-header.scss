@@ -8,20 +8,46 @@
 ---------------------------------- */
 .global-header {
   @include position(relative, 0, 10);
+  @include translate3d(0, 0, 0);
+  
+  &.searching {
+    .background {
+      @include transform3d(translateY(-500%) skew(0, 5deg));
+    }
+    
+    .background-alt {
+      @include transform3d(translateY(-500%) skew(0, -5deg));
+    }
+    
+    .title {
+      @include translateY(-200%);
+    }
+    
+    .search {
+      @include translateY(-200%);
+    }
+    
+    .back {
+      @include transition-delay(1s);
+      @include translateY(0%);
+    }
+  }
   
   .background {
     @include position(absolute, -20px 0 0 0px);
+    @include transition(transform 2s .5s ease-out);
     @include size(100%, 100px);
-    @include skew(0, .5deg);
+    @include transform3d(translateY(0%) skew(0, .8deg));
     opacity: .95;
     
-    background-color: #111111;
+    background-color: black;
   }
   
   .background-alt {
     @include position(absolute, 35px 0 0 0px);
+    @include transition(transform 1s .8s ease-out);
     @include size(100%, 50px);
-    @include skew(0, -.3deg);
+    @include transform3d(translateY(0%) skew(0, -.3deg));
     opacity: .35;
     
     background-color: #404147;
@@ -29,11 +55,12 @@
   
   .title {
     @include position(absolute, 20px 0 0 60px);
+    @include transition(transform 1s .8s ease-out);
   }
   
   .search {
     @include position(absolute, 20px 60px);
-    @include transition(box-shadow .2s ease-out);
+    @include transition(box-shadow .2s ease-out, transform .5s 1s ease-out);
     
     width: 380px;
     padding: 5px 10px;
@@ -50,7 +77,13 @@
     }
   }
   
+  .back {
+    @include position(absolute, 20px 0 0 20px);
+    @include transition(transform .8s ease-out);
+    @include translateY(-200%);
+  }
+  
   .sub-header {
     display: none;
-  } 
+  }
 }
