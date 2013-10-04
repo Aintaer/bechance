@@ -67,7 +67,7 @@ DAT.Globe = function(container, colorFn) {
   };
 
   var camera, scene, sceneAtmosphere, renderer, w, h;
-  var vector, mesh, atmosphere, point;
+  var mesh, atmosphere, point;
 
   var overRenderer;
 
@@ -81,7 +81,7 @@ DAT.Globe = function(container, colorFn) {
       target = { x: Math.PI*3/2, y: Math.PI / 6.0 },
       targetOnDown = { x: 0, y: 0 };
 
-  var distance = 100000, distanceTarget = 100000;
+  var distance = 1000, distanceTarget = 1000;
   var padding = 40;
   var PI_HALF = Math.PI / 2;
 
@@ -95,16 +95,15 @@ DAT.Globe = function(container, colorFn) {
     h = container.offsetHeight || window.innerHeight;
 
     camera = new THREE.PerspectiveCamera(30, w / h, 1, 10000);
-    camera.position.z = 800;
-	distance;
-
-    vector = new THREE.Vector3();
+    camera.position.z = distance;
 
     scene = new THREE.Scene();
     sceneAtmosphere = new THREE.Scene();
 
-    var geometry = new THREE.SphereGeometry(200, 40, 30);
 
+	// Earth
+
+    var geometry = new THREE.SphereGeometry(200, 40, 30);
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
@@ -121,6 +120,8 @@ DAT.Globe = function(container, colorFn) {
     mesh = new THREE.Mesh(geometry, material);
     mesh.matrixAutoUpdate = false;
     scene.add(mesh);
+
+	// Atmosphere
 
     shader = Shaders['atmosphere'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
@@ -140,6 +141,8 @@ DAT.Globe = function(container, colorFn) {
     mesh.updateMatrix();
     sceneAtmosphere.add(mesh);
 
+	// Point
+
     geometry = new THREE.CubeGeometry(0.75, 0.75, 1, 1, 1, 1, null, false, { px: true,
           nx: true, py: true, ny: true, pz: false, nz: true});
 
@@ -154,7 +157,7 @@ DAT.Globe = function(container, colorFn) {
 
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.autoClear = false;
-    renderer.setClearColorHex(0x000000, 0.0);
+    renderer.setClearColor(0x000000, 0.0);
     renderer.setSize(w, h);
 
     renderer.domElement.style.position = 'absolute';
@@ -370,11 +373,12 @@ DAT.Globe = function(container, colorFn) {
     rotation.y += (target.y - rotation.y) * 0.1;
     distance += (distanceTarget - distance) * 0.3;
 
-    //camera.position.x = distance * Math.sin(rotation.x) * Math.cos(rotation.y);
-    //camera.position.y = distance * Math.sin(rotation.y);
-    //camera.position.z = distance * Math.cos(rotation.x) * Math.cos(rotation.y);
-
-    vector.copy(camera.position);
+	camera.position.set(
+      distance * Math.sin(rotation.x) * Math.cos(rotation.y),
+      distance * Math.sin(rotation.y),
+      distance * Math.cos(rotation.x) * Math.cos(rotation.y)
+	);
+	camera.lookAt(new THREE.Vector3(0,0,0));
 
     renderer.clear();
     renderer.render(scene, camera);
