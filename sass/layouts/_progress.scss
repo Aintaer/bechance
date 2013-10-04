@@ -35,7 +35,7 @@
   }
   
   .fast {
-    @include transition(width 2s cubic-bezier(0.045, 0.685, 0.480, 0.975));
+    @include transition(width 3s cubic-bezier(0.045, 0.685, 0.480, 0.975));
   }
   
   .slow {

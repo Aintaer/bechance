@@ -4,10 +4,11 @@ define(['zepto', 'underscore', 'backbone'],
       el: '.progress',
 
       start: function () {
+        var that = this
         this.el.classList.add('go')
       
         this.$el.one('webkitTransitionEnd', function () {
-          console.log('done start')
+          that.trigger('waiting')
         })
       },
     
@@ -16,11 +17,11 @@ define(['zepto', 'underscore', 'backbone'],
         this.el.classList.add('done')
       
         this.$el.one('webkitTransitionEnd', function () {
+          that.trigger('finished')
+          
           setTimeout(function () {
             that.reset()
           }, 200)
-          
-          console.log('done finsih')
         })
       },
     
@@ -29,8 +30,7 @@ define(['zepto', 'underscore', 'backbone'],
         this.el.classList.add('reset')
         
         this.$el.one('webkitTransitionEnd', function () {
-          console.log('finish reset')
-          
+          that.trigger('reset')
           that.el.classList.remove('done')
           that.el.classList.remove('go')
           
