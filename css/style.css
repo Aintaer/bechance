@@ -504,6 +504,20 @@ p {
   font: 18px/22px "proxima-nova", sans-serif;
 }
 
+/* line 68, ../sass/modules/type/_type.scss */
+a {
+  -webkit-transition: color 0.2 ease-out;
+  -moz-transition: color 0.2 ease-out;
+  -o-transition: color 0.2 ease-out;
+  transition: color 0.2 ease-out;
+  color: #7ec2ff;
+  text-decoration: none;
+}
+/* line 74, ../sass/modules/type/_type.scss */
+a:hover {
+  color: #64b6ff;
+}
+
 /* line 3, ../sass/modules/buttons/_buttons.scss */
 button {
   display: inline-block;
@@ -523,6 +537,11 @@ button {
   Website layout. Contains mostly global website elements.
 
 ---------------------------------- */
+/* line 9, ../sass/layouts/_website.scss */
+html {
+  height: 100%;
+}
+
 /* line 13, ../sass/layouts/_website.scss */
 body {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2a2a2a), color-stop(100%, #000000));
@@ -530,9 +549,10 @@ body {
   background: -moz-linear-gradient(#2a2a2a, #000000);
   background: -o-linear-gradient(#2a2a2a, #000000);
   background: linear-gradient(#2a2a2a, #000000);
+  height: 100%;
 }
 
-/* line 18, ../sass/layouts/_website.scss */
+/* line 20, ../sass/layouts/_website.scss */
 ul {
   margin: 0;
   padding: 0;
@@ -601,7 +621,15 @@ ul {
   -o-transform: translateY(0%);
   transform: translateY(0%);
 }
-/* line 36, ../sass/layouts/_global-header.scss */
+/* line 35, ../sass/layouts/_global-header.scss */
+.global-header.searching .sub-header {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  opacity: 0;
+}
+/* line 42, ../sass/layouts/_global-header.scss */
 .global-header .background {
   position: absolute;
   top: -20px;
@@ -613,15 +641,15 @@ ul {
   transition: transform 2s 0.5s ease-out;
   width: 100%;
   height: 100px;
-  -webkit-transform: translateY(0%) skew(0, 0.8deg);
-  -moz-transform: translateY(0%) skew(0, 0.8deg);
-  -ms-transform: translateY(0%) skew(0, 0.8deg);
-  -o-transform: translateY(0%) skew(0, 0.8deg);
-  transform: translateY(0%) skew(0, 0.8deg);
+  -webkit-transform: translateY(0%) skew(0, 0.7deg);
+  -moz-transform: translateY(0%) skew(0, 0.7deg);
+  -ms-transform: translateY(0%) skew(0, 0.7deg);
+  -o-transform: translateY(0%) skew(0, 0.7deg);
+  transform: translateY(0%) skew(0, 0.7deg);
   opacity: .95;
   background-color: black;
 }
-/* line 46, ../sass/layouts/_global-header.scss */
+/* line 52, ../sass/layouts/_global-header.scss */
 .global-header .background-alt {
   position: absolute;
   top: 35px;
@@ -641,7 +669,7 @@ ul {
   opacity: .35;
   background-color: #404147;
 }
-/* line 56, ../sass/layouts/_global-header.scss */
+/* line 62, ../sass/layouts/_global-header.scss */
 .global-header .title {
   position: absolute;
   top: 20px;
@@ -652,7 +680,7 @@ ul {
   -o-transition: -o-transform 1s 0.8s ease-out;
   transition: transform 1s 0.8s ease-out;
 }
-/* line 61, ../sass/layouts/_global-header.scss */
+/* line 67, ../sass/layouts/_global-header.scss */
 .global-header .search {
   position: absolute;
   top: 20px;
@@ -671,12 +699,12 @@ ul {
   border: 0;
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.3);
 }
-/* line 74, ../sass/layouts/_global-header.scss */
+/* line 80, ../sass/layouts/_global-header.scss */
 .global-header .search:focus {
   outline: none;
   box-shadow: 0 2px 0 0 rgba(126, 194, 255, 0.6);
 }
-/* line 80, ../sass/layouts/_global-header.scss */
+/* line 86, ../sass/layouts/_global-header.scss */
 .global-header .back {
   position: absolute;
   top: 20px;
@@ -691,19 +719,56 @@ ul {
   -o-transform: translateY(-200%);
   transform: translateY(-200%);
 }
-/* line 85, ../sass/layouts/_global-header.scss */
+/* line 91, ../sass/layouts/_global-header.scss */
 .global-header .back .now-viewing {
   margin-left: 20px;
   font: 18px "proxima-nova", sans-serif;
   color: #7ec2ff;
 }
-/* line 90, ../sass/layouts/_global-header.scss */
+/* line 96, ../sass/layouts/_global-header.scss */
 .global-header .back .now-viewing .term {
   font-weight: 800;
 }
-/* line 96, ../sass/layouts/_global-header.scss */
+/* line 102, ../sass/layouts/_global-header.scss */
 .global-header .sub-header {
+  position: absolute;
+  top: 110px;
+  -webkit-transition: opacity 0.5s 1s;
+  -webkit-transition-delay: ease-out;
+  -moz-transition: opacity 0.5s 1s ease-out;
+  -o-transition: opacity 0.5s 1s ease-out;
+  transition: opacity 0.5s 1s ease-out;
+  width: 100%;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+/* line 110, ../sass/layouts/_global-header.scss */
+.global-header .sub-header .recommended {
+  font-size: 13px;
+}
+/* line 113, ../sass/layouts/_global-header.scss */
+.global-header .sub-header .recommended .label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  font-weight: 800;
+  color: #d8d8d8;
+}
+/* line 121, ../sass/layouts/_global-header.scss */
+.global-header .sub-header .recommended .list {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 125, ../sass/layouts/_global-header.scss */
+.global-header .sub-header .recommended .list li {
+  float: left;
+  margin-right: 10px;
+  font-weight: 600;
+}
+/* line 133, ../sass/layouts/_global-header.scss */
+.global-header .sub-header .analytics {
   display: none;
+  float: right;
 }
 
 /** ----------------------------------

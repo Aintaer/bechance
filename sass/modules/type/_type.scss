@@ -65,23 +65,16 @@
 //    color: $darkgray;
   }
   
-//  a {
-//    @include transition(color .2 ease-out);
-//    
-//    color: $primary;
-//    text-decoration: none;
-//    
-//    &:hover {
-//      color: darken($primary, 5%);
-//    }
-//    
-//    &.small-link {
-//      font: 14px $condensed-stack;
-//      color: $secondary;
-//      text-transform: uppercase;
-//      text-decoration: underline;
-//    }
-//  }
+  a {
+    @include transition(color .2 ease-out);
+    
+    color: $blue;
+    text-decoration: none;
+    
+    &:hover {
+      color: darken($blue, 5%);
+    }
+  }
 }
 
 

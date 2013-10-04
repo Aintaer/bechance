@@ -5,7 +5,12 @@ define(['zepto', 'underscore', 'backbone'],
       
       events: {
         'keydown .search': 'submitSearch',
-        'click .back-button': 'toggleSearchMode'
+        'click .back-button': 'toggleSearchMode',
+        'click .recco': function (event) {
+          event.preventDefault()
+          event.stopPropagation()
+          this.performSearch(event.target.textContent)
+        }
       },
       
       initialize: function () {
@@ -20,10 +25,17 @@ define(['zepto', 'underscore', 'backbone'],
         value = event.target.value
         event.target.value = ''
         event.target.blur()
-
-        this.trigger('submitted', value);
-        this.el.querySelector('.term').textContent = value
         
+        this.performSearch(value)
+        
+        return this
+      },
+      
+      performSearch: function (query) {
+        if (query === '') return this
+        
+        this.trigger('submitted', query);
+        this.el.querySelector('.term').textContent = query
         return this
       },
       

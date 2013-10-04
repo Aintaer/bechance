@@ -31,13 +31,19 @@
       @include transition-delay(1s);
       @include translateY(0%);
     }
+    
+    .sub-header {
+      @include transition-delay(0s);
+      
+      opacity: 0;
+    }
   }
   
   .background {
     @include position(absolute, -20px 0 0 0px);
     @include transition(transform 2s .5s ease-out);
     @include size(100%, 100px);
-    @include transform3d(translateY(0%) skew(0, .8deg));
+    @include transform3d(translateY(0%) skew(0, .7deg));
     opacity: .95;
     
     background-color: black;
@@ -94,6 +100,39 @@
   }
   
   .sub-header {
-    display: none;
+    @include position(absolute, 110px);
+    @include transition(opacity .5s 1s ease-out);
+    
+    width: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
+    
+    .recommended {
+      font-size: 13px;
+      
+      .label {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        font-weight: 800;
+        color: $lightgray;
+      }
+      
+      .list {
+        display: inline-block;
+        vertical-align: middle;
+        
+        li {
+          float: left;
+          margin-right: 10px;
+          font-weight: 600;
+        }
+      }
+    }
+    
+    .analytics {
+      display: none;
+      float: right;
+    }
   }
 }
