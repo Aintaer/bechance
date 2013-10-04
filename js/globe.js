@@ -103,7 +103,7 @@ DAT.Globe = function(container, colorFn) {
     scene = new THREE.Scene();
     sceneAtmosphere = new THREE.Scene();
 
-    var geometry = new THREE.Sphere(200, 40, 30);
+    var geometry = new THREE.SphereGeometry(200, 40, 30);
 
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
@@ -111,7 +111,7 @@ DAT.Globe = function(container, colorFn) {
     uniforms['texture'].texture = THREE.ImageUtils.loadTexture(imgDir+'world' +
         '.jpg');
 
-    material = new THREE.MeshShaderMaterial({
+    material = new THREE.ShaderMaterial({
 
           uniforms: uniforms,
           vertexShader: shader.vertexShader,
@@ -121,12 +121,12 @@ DAT.Globe = function(container, colorFn) {
 
     mesh = new THREE.Mesh(geometry, material);
     mesh.matrixAutoUpdate = false;
-    scene.addObject(mesh);
+    scene.add(mesh);
 
     shader = Shaders['atmosphere'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-    material = new THREE.MeshShaderMaterial({
+    material = new THREE.ShaderMaterial({
 
           uniforms: uniforms,
           vertexShader: shader.vertexShader,
@@ -139,15 +139,15 @@ DAT.Globe = function(container, colorFn) {
     mesh.flipSided = true;
     mesh.matrixAutoUpdate = false;
     mesh.updateMatrix();
-    sceneAtmosphere.addObject(mesh);
+    sceneAtmosphere.add(mesh);
 
-    geometry = new THREE.Cube(0.75, 0.75, 1, 1, 1, 1, null, false, { px: true,
+    geometry = new THREE.CubeGeometry(0.75, 0.75, 1, 1, 1, 1, null, false, { px: true,
           nx: true, py: true, ny: true, pz: false, nz: true});
 
     for (var i = 0; i < geometry.vertices.length; i++) {
 
       var vertex = geometry.vertices[i];
-      vertex.position.z += 0.5;
+      vertex.z += 0.5;
 
     }
 
