@@ -1,0 +1,13 @@
+// Mask icons module mixins.
+// Mask icon.
+//
+// $img  - The image path, without an extension.
+@mixin mask-icon($img) {
+  $svg: '#{$img}.svg';
+  $png: '#{$img}.png';
+  
+  @include size(image-width($png), image-height($png));
+  
+  color: transparent;
+  -webkit-mask: center center no-repeat image-url($svg);
+}
