@@ -21,8 +21,7 @@ function(search, world, aggregate, GlobalHeader, ProgressBar, StarsView) {
     search(term)
     .then(aggregate)
     .then(function(data) {
-          progress.finish();
-          localStorage.setItem('data', JSON.stringify(data))
+      progress.finish();
       world.add(data);
     });
 	}

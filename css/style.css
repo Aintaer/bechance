@@ -549,14 +549,15 @@ body {
   background: -o-linear-gradient(#2a2a2a, #000000);
   background: linear-gradient(#2a2a2a, #000000);
   height: 100%;
+  background-color: black;
 }
 
-/* line 19, ../sass/layouts/_website.scss */
+/* line 20, ../sass/layouts/_website.scss */
 .map {
   width: 100%;
   height: 100%;
 }
-/* line 22, ../sass/layouts/_website.scss */
+/* line 23, ../sass/layouts/_website.scss */
 .map .starfield {
   position: fixed;
   top: 0px;
@@ -564,7 +565,7 @@ body {
   width: 100%;
   height: 100%;
 }
-/* line 27, ../sass/layouts/_website.scss */
+/* line 28, ../sass/layouts/_website.scss */
 .map .star {
   width: 1px;
   height: 1px;
@@ -578,54 +579,54 @@ body {
 }
 
 @-moz-keyframes twinkle {
-  /* line 38, ../sass/layouts/_website.scss */
+  /* line 39, ../sass/layouts/_website.scss */
   0%,100% {
     opacity: .2;
   }
 
-  /* line 42, ../sass/layouts/_website.scss */
+  /* line 43, ../sass/layouts/_website.scss */
   50% {
     opacity: .8;
   }
 }
 
 @-webkit-keyframes twinkle {
-  /* line 38, ../sass/layouts/_website.scss */
+  /* line 39, ../sass/layouts/_website.scss */
   0%,100% {
     opacity: .2;
   }
 
-  /* line 42, ../sass/layouts/_website.scss */
+  /* line 43, ../sass/layouts/_website.scss */
   50% {
     opacity: .8;
   }
 }
 
 @-o-keyframes twinkle {
-  /* line 38, ../sass/layouts/_website.scss */
+  /* line 39, ../sass/layouts/_website.scss */
   0%,100% {
     opacity: .2;
   }
 
-  /* line 42, ../sass/layouts/_website.scss */
+  /* line 43, ../sass/layouts/_website.scss */
   50% {
     opacity: .8;
   }
 }
 
 @keyframes twinkle {
-  /* line 38, ../sass/layouts/_website.scss */
+  /* line 39, ../sass/layouts/_website.scss */
   0%,100% {
     opacity: .2;
   }
 
-  /* line 42, ../sass/layouts/_website.scss */
+  /* line 43, ../sass/layouts/_website.scss */
   50% {
     opacity: .8;
   }
 }
 
-/* line 48, ../sass/layouts/_website.scss */
+/* line 49, ../sass/layouts/_website.scss */
 ul {
   margin: 0;
   padding: 0;
