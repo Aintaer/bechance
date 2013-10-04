@@ -1,23 +1,44 @@
 /*global Typekit */
+
 require({
+
 	shim: {
-		'three': {exports: "THREE"}
+
+		'three': {exports: "THREE"},
+
+		'globe': {exports: "DAT"}
+
 	}
-}, ['be', 'three'], function(be, THREE) {
+
+}, ['be', 'three', 'globe'], function(be, THREE, DAT) {
+
 	'use strict';
 
+
+
 	var container = document.createElement('DIV');
+
 	document.body.appendChild(container);
 
-	container.textContent = "NO JQUERY EVAR";
+
+
+	var globe = new DAT.Globe(container);
+
+	console.log(globe);
+
+
 
 	be("M55FPXPyfvChqq8GQ1TBopL8fH4cpCyd");
 
+
+
 	be.project.search('nsfw')
+
 	.then(function(data) {
-		container.textContent =
-		data.projects.map(function(project) {
-			return project.name;
-		}).join(', ');
+
+		console.log(data);
+
 	});
+
 });
+
