@@ -14,9 +14,11 @@
 // Modules.
 @import 'modules/masks/masks';
 @import 'modules/type/type';
+@import 'modules/buttons/buttons';
 
 // Module includes.
 @include type;
+@include buttons;
 
 // Layouts.
 @import 'layouts/website';

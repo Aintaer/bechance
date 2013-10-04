@@ -504,6 +504,17 @@ p {
   font: 18px/22px "proxima-nova", sans-serif;
 }
 
+/* line 3, ../sass/modules/buttons/_buttons.scss */
+button {
+  display: inline-block;
+  padding: 7px 18px;
+  font: 600 16px "proxima-nova", sans-serif;
+  color: #054580;
+  border-radius: 2px;
+  border: 0;
+  outline: 0;
+}
+
 /** ----------------------------------
 
   Website
@@ -670,17 +681,27 @@ ul {
   position: absolute;
   top: 20px;
   left: 20px;
-  -webkit-transition: -webkit-transform 0.8s ease-out;
-  -moz-transition: -moz-transform 0.8s ease-out;
-  -o-transition: -o-transform 0.8s ease-out;
-  transition: transform 0.8s ease-out;
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  -moz-transition: -moz-transform 0.5s ease-out;
+  -o-transition: -o-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
   -webkit-transform: translateY(-200%);
   -moz-transform: translateY(-200%);
   -ms-transform: translateY(-200%);
   -o-transform: translateY(-200%);
   transform: translateY(-200%);
 }
-/* line 86, ../sass/layouts/_global-header.scss */
+/* line 85, ../sass/layouts/_global-header.scss */
+.global-header .back .now-viewing {
+  margin-left: 20px;
+  font: 18px "proxima-nova", sans-serif;
+  color: #7ec2ff;
+}
+/* line 90, ../sass/layouts/_global-header.scss */
+.global-header .back .now-viewing .term {
+  font-weight: 800;
+}
+/* line 96, ../sass/layouts/_global-header.scss */
 .global-header .sub-header {
   display: none;
 }

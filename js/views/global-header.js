@@ -5,7 +5,7 @@ define(['zepto', 'underscore', 'backbone'],
       
       events: {
         'keydown .search': 'submitSearch',
-        'click .back': 'toggleSearchMode'
+        'click .back-button': 'toggleSearchMode'
       },
       
       initialize: function () {
@@ -22,6 +22,7 @@ define(['zepto', 'underscore', 'backbone'],
         event.target.blur()
 
         this.trigger('submitted', value);
+        this.el.querySelector('.term').textContent = value
         
         return this
       },

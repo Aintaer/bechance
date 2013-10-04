@@ -10,8 +10,9 @@ require({
   function(be, THREE, DAT, GlobalHeader) {
   	'use strict';
     
+    var searchTerm = 'nsfw';
     var header = new GlobalHeader();
-    header.on('submitted', function (value) { console.log('val', value); });
+    header.on('submitted', function (value) { searchTerm = value; doSearch(searchTerm); });
 
     var globe = new DAT.Globe(document.querySelector('.map'));
   	globe.addData([40.67, 73.94, 0.2], {
@@ -23,9 +24,13 @@ require({
   	globe.createPoints();
   	globe.animate();
   	be("M55FPXPyfvChqq8GQ1TBopL8fH4cpCyd");
-
-  	be.project.search('nsfw')
-  	.then(function(data) {
-  		console.log(data);
-  	});
+    
+    var doSearch = function (term) {
+    	be.project.search(term)
+    	.then(function(data) {
+    		console.log('results', data);
+    	});
+    }
+    
+    doSearch(searchTerm);
 });

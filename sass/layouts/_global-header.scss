@@ -79,8 +79,18 @@
   
   .back {
     @include position(absolute, 20px 0 0 20px);
-    @include transition(transform .8s ease-out);
+    @include transition(transform .5s ease-out);
     @include translateY(-200%);
+    
+    .now-viewing {
+      margin-left: 20px;
+      font: 18px $primary-stack;
+      color: $blue;
+      
+      .term {
+        font-weight: 800;
+      }
+    }
   }
   
   .sub-header {
