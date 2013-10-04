@@ -13,8 +13,10 @@
 
 // Modules.
 @import 'modules/masks/masks';
+@import 'modules/type/type';
 
 // Module includes.
+@include type;
 
 // Layouts.
 @import 'layouts/website';
