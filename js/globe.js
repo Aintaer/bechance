@@ -24,7 +24,7 @@ DAT.Globe = function(container, colorFn) {
   var Shaders = {
     'earth' : {
       uniforms: {
-        'texture': { type: 't', value: 0, texture: null }
+        'texture': { type: 't', value: null }
       },
       vertexShader: [
         'varying vec3 vNormal;',
@@ -71,7 +71,7 @@ DAT.Globe = function(container, colorFn) {
 
   var overRenderer;
 
-  var imgDir = '/globe/';
+  var imgDir = '/img/';
 
   var curZoomSpeed = 0;
   var zoomSpeed = 50;
@@ -94,9 +94,9 @@ DAT.Globe = function(container, colorFn) {
     w = container.offsetWidth || window.innerWidth;
     h = container.offsetHeight || window.innerHeight;
 
-    camera = new THREE.Camera(
-        30, w / h, 1, 10000);
-    camera.position.z = distance;
+    camera = new THREE.PerspectiveCamera(30, w / h, 1, 10000);
+    camera.position.z = 800;
+	distance;
 
     vector = new THREE.Vector3();
 
@@ -108,16 +108,15 @@ DAT.Globe = function(container, colorFn) {
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-    uniforms['texture'].texture = THREE.ImageUtils.loadTexture(imgDir+'world' +
-        '.jpg');
+    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world.jpg');
 
-    material = new THREE.ShaderMaterial({
+	material = new THREE.ShaderMaterial({
 
-          uniforms: uniforms,
-          vertexShader: shader.vertexShader,
-          fragmentShader: shader.fragmentShader
+		uniforms: uniforms,
+		vertexShader: shader.vertexShader,
+		fragmentShader: shader.fragmentShader
 
-        });
+	});
 
     mesh = new THREE.Mesh(geometry, material);
     mesh.matrixAutoUpdate = false;
@@ -256,7 +255,7 @@ DAT.Globe = function(container, colorFn) {
               morphTargets: true
             }));
       }
-      scene.addObject(this.points);
+      scene.add(this.points);
     }
   }
 
@@ -371,15 +370,15 @@ DAT.Globe = function(container, colorFn) {
     rotation.y += (target.y - rotation.y) * 0.1;
     distance += (distanceTarget - distance) * 0.3;
 
-    camera.position.x = distance * Math.sin(rotation.x) * Math.cos(rotation.y);
-    camera.position.y = distance * Math.sin(rotation.y);
-    camera.position.z = distance * Math.cos(rotation.x) * Math.cos(rotation.y);
+    //camera.position.x = distance * Math.sin(rotation.x) * Math.cos(rotation.y);
+    //camera.position.y = distance * Math.sin(rotation.y);
+    //camera.position.z = distance * Math.cos(rotation.x) * Math.cos(rotation.y);
 
     vector.copy(camera.position);
 
     renderer.clear();
     renderer.render(scene, camera);
-    renderer.render(sceneAtmosphere, camera);
+    //renderer.render(sceneAtmosphere, camera);
   }
 
   init();
