@@ -41,5 +41,5 @@ function(be, world, GlobalHeader, ProgressBar) {
 		});
 	}
 
-	document.addEventListener('DOMContentLoaded', init);
+  window.onload = init
 });
