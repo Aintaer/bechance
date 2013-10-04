@@ -3,11 +3,11 @@ require({
 	shim: {
 		'three': {exports: "THREE"}
 	}
-}, ['jquery'], function($) {
+}, ['three'], function(THREE) {
 	'use strict';
 
-	var $html = $('html'),
-	$doc = $(document.body);
+	var container = document.createElement('DIV');
+	document.body.appendChild(container);
 
-	$doc.append("<div>OH GOD</div>");
+	container.textContent = "NO JQUERY EVAR";
 });
