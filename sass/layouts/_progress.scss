@@ -1,0 +1,44 @@
+.progress {
+  @include position(fixed, 0px 0 0 0px, 20);
+  @include size(100%, 5px);
+  
+  & > div {
+    @include position(absolute, 0px 0 0 0px);
+    @include size(0%, 100%);
+
+    background-color: $blue;
+  }
+  
+  &.reset {
+    & > div {
+      @include transition(height .2s ease-out);
+      
+      height: 0%;
+    }
+  }
+  
+  &.go {
+    .slow,
+    .fast {
+      width: 90%;
+    }
+  }
+  
+  &.done {
+    .fast {
+      width: 90%;
+    }
+    
+    .slow {
+      width: 100%;
+    }
+  }
+  
+  .fast {
+    @include transition(width 2s cubic-bezier(0.045, 0.685, 0.480, 0.975));
+  }
+  
+  .slow {
+    @include transition(width .5s cubic-bezier(0.045, 0.685, 0.480, 0.975));
+  }
+}

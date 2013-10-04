@@ -811,3 +811,57 @@ ul {
   margin: 0 auto;
   background-color: white;
 }
+
+/* line 1, ../sass/layouts/_progress.scss */
+.progress {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 20;
+  width: 100%;
+  height: 5px;
+}
+/* line 5, ../sass/layouts/_progress.scss */
+.progress > div {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0%;
+  height: 100%;
+  background-color: #7ec2ff;
+}
+/* line 13, ../sass/layouts/_progress.scss */
+.progress.reset > div {
+  -webkit-transition: height 0.2s ease-out;
+  -moz-transition: height 0.2s ease-out;
+  -o-transition: height 0.2s ease-out;
+  transition: height 0.2s ease-out;
+  height: 0%;
+}
+/* line 22, ../sass/layouts/_progress.scss */
+.progress.go .slow,
+.progress.go .fast {
+  width: 90%;
+}
+/* line 28, ../sass/layouts/_progress.scss */
+.progress.done .fast {
+  width: 90%;
+}
+/* line 32, ../sass/layouts/_progress.scss */
+.progress.done .slow {
+  width: 100%;
+}
+/* line 37, ../sass/layouts/_progress.scss */
+.progress .fast {
+  -webkit-transition: width 2s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  -moz-transition: width 2s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  -o-transition: width 2s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  transition: width 2s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+}
+/* line 41, ../sass/layouts/_progress.scss */
+.progress .slow {
+  -webkit-transition: width 0.5s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  -moz-transition: width 0.5s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  -o-transition: width 0.5s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  transition: width 0.5s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+}
