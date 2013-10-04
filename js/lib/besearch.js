@@ -12,7 +12,11 @@ define(['be', 'nbd/util/when'], function(be, when) {
 	return function(term) {
 
 		return when.apply(null, mkArray(50).map(function(page) {
-			return be.project.search({q: term, page: page});
+			return be.project.search({
+				q: term,
+				sort: 'views',
+				page: page
+			});
 		}))
 		.then(function(results) {
 			var locMap = {};
