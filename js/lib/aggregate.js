@@ -14,7 +14,20 @@ define(['nbd/trait/promise', 'nbd/util/when'], function(Promise, when) {
 		promise = new Promise();
 
 		function request(req) {
-			console.log(req);
+			console.log(req.location);
+			if (localStorage[req.location]) {
+				var _latlng = localStorage[req.location].split(',');
+				data.push(+_latlng[0], +_latlng[1], req.value);
+
+				if (++i < requests.length) {
+					request(requests[i]);
+				}
+				else {
+					promise.resolve(data);
+				}
+				return;
+			}
+
 			map.geocode({address: req.location}, function(result) {
 				if (!result) {
 					promise.resolve(data);
@@ -22,12 +35,13 @@ define(['nbd/trait/promise', 'nbd/util/when'], function(Promise, when) {
 				}
 
 				var location = result[0].geometry.location;
+				localStorage[req.location] = [location.lat(), location.lng()].join();
 				data.push(location.lat(), location.lng(), req.value);
 
 				if (++i < requests.length) {
 					setTimeout(function() {
 					request(requests[i]);
-					}, 500);
+					}, 100);
 				}
 				else {
 					promise.resolve(data);
