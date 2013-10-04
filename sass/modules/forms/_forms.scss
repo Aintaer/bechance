@@ -1,0 +1,115 @@
+/** ----------------------------------
+
+  Forms
+  -----
+
+  Forms module.
+
+---------------------------------- */
+/*
+  Imports.
+*/
+@import 'mixins';
+
+/*
+  Variable defaults.
+*/
+$gray: gray !default;
+
+/*
+  Mixon.
+*/
+@mixin forms() {
+  .message {
+    @extend %message-container;
+  }
+  
+  form {
+    @extend %form-layout;
+  }
+  
+  input[type='text'] {
+    @extend %text-input;
+  }
+  
+  input[type='submit'] {
+    @extend %submit-button;
+  }
+  
+  .submit-button {
+    @extend %submit-button-container;
+  }
+}
+
+
+/** ----------------------------------
+
+    Module extends.
+    
+---------------------------------- */
+/*
+  Error container extend.
+*/
+%message-container {
+  margin-top: 20px;
+  font: 14px $condensed-stack;
+  color: $darkgray;
+}
+
+/*
+  Form layout extend.
+*/
+%form-layout {
+  @include box-sizing(border-box);
+  
+  display: block;
+  margin: 0 0 10px 0;
+}
+
+/*
+  Text input extend.
+*/
+%text-input {
+  @include box-sizing(border-box);
+  @include inline-block;
+  
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px 6px 6px 6px;
+  font: 18px $condensed-stack;
+  border: 1px solid $gray;
+  outline: none;
+}
+
+/*
+  Submit button extend.
+*/
+%submit-button {
+  @include inline-block;
+  @include hide-text;
+  
+  width: 36px;
+  height: 36px;
+  background: center center $primary no-repeat inline-image('submit-caret.png');
+  border: 0;
+  outline: 0;
+}
+
+/*
+  Submit button container extend.
+*/
+%submit-button-container {
+  @include inline-block;
+  @include position(relative);
+  
+  .spin {
+    @include transition(all .3s ease-out);
+    @include position(absolute, 0% -20px);
+    @include opacity(0);
+    
+    &.show {
+      @include position(absolute, 50% -20px);
+      @include opacity(1);
+    }
+  }
+}

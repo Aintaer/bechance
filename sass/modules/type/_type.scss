@@ -1,0 +1,103 @@
+/** ----------------------------------
+
+  Type
+  ----
+
+  Type module.
+
+---------------------------------- */
+/*
+  Imports.
+*/
+@import 'mixins';
+
+/*
+  Variable defaults.
+*/
+$primary: red !default;
+$darkgray: gray !default;
+$sans-stack: sans-serif !default;
+$primary-stack: serif !default;
+$condensed-stack: serif !default;
+
+/*
+  Mixon.
+*/
+@mixin type() {
+  #{headings(all)} {
+    margin-top: 0;
+    
+    & > span {
+      color: $primary;
+    }
+  }
+  
+  h1 {
+    font: 700 italic 65px/56px $condensed-stack;
+    text-transform: uppercase;
+  }
+  
+  h2 {
+    font: italic 70px/62px $condensed-stack;
+    text-transform: uppercase;
+  }
+  
+  h3 {
+    margin-bottom: 15px;
+    font: 700 40px $condensed-stack;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
+  
+  h4 {
+    @extend h3;
+    
+    margin: 10px 0;
+    font-size: 22px;
+    font-style: italic;
+    letter-spacing: normal;
+  }
+  
+  h5 {
+    font: 700 16px $condensed-stack;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  
+  h6 {
+    @extend h5;
+    
+    margin-bottom: 5px;
+    color: darken($gray, 10%);
+  }
+  
+  p {
+    font: 18px/22px $primary-stack;
+    color: $darkgray;
+  }
+  
+  a {
+    @include transition(color .2 ease-out);
+    
+    color: $primary;
+    text-decoration: none;
+    
+    &:hover {
+      color: darken($primary, 5%);
+    }
+    
+    &.small-link {
+      font: 14px $condensed-stack;
+      color: $secondary;
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+/** ----------------------------------
+
+    Module extends.
+    
+---------------------------------- */
