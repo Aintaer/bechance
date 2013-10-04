@@ -52,13 +52,10 @@ define(['zepto', 'underscore', 'backbone'],
         
         // Style.
         if (current) {
-          console.log(Math.floor(parseInt(current[0], 10)) + distX)
-          console.log(Math.floor(parseInt(current[1], 10)) + distY)
           distX = Math.floor(parseInt(current[0], 10)) + distX
           distY = Math.floor(parseInt(current[1], 10)) + distY
         }
         
-        // console.log('x', distX, 'y', distY)
         field.style.webkitTransform = 'translate(' + distX + 'px, ' + distY + 'px)'
       }
     })
