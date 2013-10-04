@@ -7,7 +7,7 @@ define(['zepto', 'underscore', 'backbone'],
         var that = this
         this.el.classList.add('go')
       
-        this.$el.one('webkitTransitionEnd', function () {
+        this.$el.one('transitionEnd', function () {
           that.trigger('waiting')
         })
       },
@@ -16,7 +16,7 @@ define(['zepto', 'underscore', 'backbone'],
         var that = this;
         this.el.classList.add('done')
       
-        this.$el.one('webkitTransitionEnd', function () {
+        this.$el.one('transitionEnd', function () {
           that.trigger('finished')
           
           setTimeout(function () {
@@ -29,7 +29,7 @@ define(['zepto', 'underscore', 'backbone'],
         var that = this
         this.el.classList.add('reset')
         
-        this.$el.one('webkitTransitionEnd', function () {
+        this.$el.one('transitionEnd', function () {
           that.trigger('reset')
           that.el.classList.remove('done')
           that.el.classList.remove('go')
