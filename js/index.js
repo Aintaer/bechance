@@ -9,6 +9,11 @@ require({
 	var globe = new DAT.Globe(document.querySelector('.map'));
 	console.log(globe);
 
+	globe.addData([40.67, 73.94, 0.2], {
+		format: 'magnitude',
+		name: 'test',
+		animated: false
+	});
 	globe.createPoints();
 	globe.animate();
 	be("M55FPXPyfvChqq8GQ1TBopL8fH4cpCyd");

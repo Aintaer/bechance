@@ -17,7 +17,7 @@ DAT.Globe = function(container, colorFn) {
 
   colorFn = colorFn || function(x) {
     var c = new THREE.Color();
-    c.setHSV( ( 0.6 - ( x * 0.5 ) ), 1.0, 1.0 );
+    c.setHSL( ( 0.6 - ( x * 0.5 ) ), 1.0, 0.5 );
     return c;
   };
 
@@ -282,7 +282,7 @@ DAT.Globe = function(container, colorFn) {
 
     }
 
-    GeometryUtils.merge(subgeo, point);
+    THREE.GeometryUtils.merge(subgeo, point);
   }
 
   function onMouseDown(event) {
