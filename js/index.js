@@ -6,10 +6,7 @@ require({
 }, ['be', 'three', 'globe'], function(be, THREE, DAT) {
 	'use strict';
 
-	var container = document.createElement('DIV');
-	document.body.appendChild(container);
-
-	var globe = new DAT.Globe(container);
+	var globe = new DAT.Globe(document.querySelector('.map'));
 	console.log(globe);
 
 	globe.createPoints();
