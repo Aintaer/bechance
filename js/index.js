@@ -6,41 +6,32 @@ require({
 		'three': {exports: "THREE"},
 		'globe': {deps: ['three'], exports: "DAT"}
 	}
-}, ['be', 'lib/world', 'views/global-header', 'views/progress-bar'],
-function(be, world, GlobalHeader, ProgressBar) {
+}, ['lib/besearch', 'lib/world', 'lib/aggregate', 'views/global-header', 'views/progress-bar'],
+function(search, world, aggregate, GlobalHeader, ProgressBar) {
 	'use strict';
 
-	var searchTerm = 'nsfw';
-  var progress = null;
+	var searchTerm = 'nsfw',
+	header, progress;
 
-	be("M55FPXPyfvChqq8GQ1TBopL8fH4cpCyd");
-
-	function init() {
-  	var header = new GlobalHeader();
-  	header.on('submitted', function (value) { searchTerm = value; doSearch(searchTerm); });
-    var progress = new ProgressBar()
+	function doSearch (term) {
+		//progress.start();
     
-  	function doSearch (term) {
-      progress.start()
-    
-  		be.project.search(term)
-  		.then(function(data) {
-        progress.finish()
-  			console.log('results', data);
-  		});
-  	}
-    
-		world.init(document.querySelector('.map'));
-
-		doSearch(searchTerm);
-		var map = new google.maps.Geocoder(); 
-		map.geocode({
-			address: "New York, New York, US"
-		}, function(results, status) {
-			var location = results[0].geometry.location;
-			world.add([location.lat(), location.lng(), 0.2]);
+		search(term)
+		.then(aggregate)
+		.then(function(data) {
+			world.add(data);
 		});
 	}
 
-  window.onload = init
+	function init() {
+		header = new GlobalHeader();
+		//progress = new ProgressBar();
+		header.on('submitted', function (value) { searchTerm = value; doSearch(searchTerm); });
+
+		world.init(document.querySelector('.map'));
+
+		doSearch(searchTerm);
+	}
+
+  window.onload = init;
 });
