@@ -29,7 +29,7 @@ define(['nbd/trait/promise', 'nbd/util/when'], function(Promise, when) {
 			}
 
 			map.geocode({address: req.location}, function(result) {
-				if (!result) {
+				if (!result || !result.length) {
 					promise.resolve(data);
 					return;
 				}
