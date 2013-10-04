@@ -557,11 +557,56 @@ body {
 }
 
 /* line 21, ../sass/layouts/_website.scss */
+.legend {
+  -webkit-transition: -webkit-transform 0.5s 0.5s;
+  -webkit-transition-delay: cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  -moz-transition: -moz-transform 0.5s 0.5s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  -o-transition: -o-transform 0.5s 0.5s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  transition: transform 0.5s 0.5s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  position: fixed;
+  top: 110px;
+  right: 10px;
+  width: 5px;
+  height: 200px;
+}
+/* line 26, ../sass/layouts/_website.scss */
+.legend > span {
+  font: 600 12px "proxima-nova", sans-serif;
+  color: #d8d8d8;
+  text-transform: uppercase;
+  text-align: right;
+}
+/* line 33, ../sass/layouts/_website.scss */
+.legend .colors {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(#ff7900 0%, #f4ff00 25%, #07ff00 40%, #00ccff 60%, #0022ff 85%);
+  background: -moz-linear-gradient(#ff7900 0%, #f4ff00 25%, #07ff00 40%, #00ccff 60%, #0022ff 85%);
+  background: -o-linear-gradient(#ff7900 0%, #f4ff00 25%, #07ff00 40%, #00ccff 60%, #0022ff 85%);
+  background: linear-gradient(#ff7900 0%, #f4ff00 25%, #07ff00 40%, #00ccff 60%, #0022ff 85%);
+}
+/* line 40, ../sass/layouts/_website.scss */
+.legend .top-label {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  z-index: 1;
+}
+/* line 44, ../sass/layouts/_website.scss */
+.legend .bottom-label {
+  position: absolute;
+  right: 20px;
+  bottom: 0px;
+  z-index: 1;
+}
+
+/* line 49, ../sass/layouts/_website.scss */
 .map {
   width: 100%;
   height: 100%;
 }
-/* line 24, ../sass/layouts/_website.scss */
+/* line 52, ../sass/layouts/_website.scss */
 .map .starfield {
   position: fixed;
   top: 0px;
@@ -569,7 +614,7 @@ body {
   width: 100%;
   height: 100%;
 }
-/* line 29, ../sass/layouts/_website.scss */
+/* line 57, ../sass/layouts/_website.scss */
 .map .star {
   width: 1px;
   height: 1px;
@@ -583,54 +628,54 @@ body {
 }
 
 @-moz-keyframes twinkle {
-  /* line 40, ../sass/layouts/_website.scss */
+  /* line 68, ../sass/layouts/_website.scss */
   0%,100% {
     opacity: .2;
   }
 
-  /* line 44, ../sass/layouts/_website.scss */
+  /* line 72, ../sass/layouts/_website.scss */
   50% {
     opacity: .8;
   }
 }
 
 @-webkit-keyframes twinkle {
-  /* line 40, ../sass/layouts/_website.scss */
+  /* line 68, ../sass/layouts/_website.scss */
   0%,100% {
     opacity: .2;
   }
 
-  /* line 44, ../sass/layouts/_website.scss */
+  /* line 72, ../sass/layouts/_website.scss */
   50% {
     opacity: .8;
   }
 }
 
 @-o-keyframes twinkle {
-  /* line 40, ../sass/layouts/_website.scss */
+  /* line 68, ../sass/layouts/_website.scss */
   0%,100% {
     opacity: .2;
   }
 
-  /* line 44, ../sass/layouts/_website.scss */
+  /* line 72, ../sass/layouts/_website.scss */
   50% {
     opacity: .8;
   }
 }
 
 @keyframes twinkle {
-  /* line 40, ../sass/layouts/_website.scss */
+  /* line 68, ../sass/layouts/_website.scss */
   0%,100% {
     opacity: .2;
   }
 
-  /* line 44, ../sass/layouts/_website.scss */
+  /* line 72, ../sass/layouts/_website.scss */
   50% {
     opacity: .8;
   }
 }
 
-/* line 50, ../sass/layouts/_website.scss */
+/* line 78, ../sass/layouts/_website.scss */
 ul {
   margin: 0;
   padding: 0;
@@ -707,7 +752,19 @@ ul {
   transition-delay: 0s;
   opacity: 0;
 }
-/* line 42, ../sass/layouts/_global-header.scss */
+/* line 41, ../sass/layouts/_global-header.scss */
+.global-header.searching .legend {
+  -webkit-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  -o-transition-delay: 1s;
+  transition-delay: 1s;
+  -webkit-transform: translateY(-100px);
+  -moz-transform: translateY(-100px);
+  -ms-transform: translateY(-100px);
+  -o-transform: translateY(-100px);
+  transform: translateY(-100px);
+}
+/* line 47, ../sass/layouts/_global-header.scss */
 .global-header .background {
   position: absolute;
   top: -20px;
@@ -727,7 +784,7 @@ ul {
   opacity: .95;
   background-color: black;
 }
-/* line 52, ../sass/layouts/_global-header.scss */
+/* line 57, ../sass/layouts/_global-header.scss */
 .global-header .background-alt {
   position: absolute;
   top: 35px;
@@ -747,7 +804,7 @@ ul {
   opacity: .35;
   background-color: #404147;
 }
-/* line 62, ../sass/layouts/_global-header.scss */
+/* line 67, ../sass/layouts/_global-header.scss */
 .global-header .title {
   position: absolute;
   top: 20px;
@@ -758,7 +815,7 @@ ul {
   -o-transition: -o-transform 1s 0.8s ease-out;
   transition: transform 1s 0.8s ease-out;
 }
-/* line 67, ../sass/layouts/_global-header.scss */
+/* line 72, ../sass/layouts/_global-header.scss */
 .global-header .search {
   position: absolute;
   top: 20px;
@@ -777,12 +834,12 @@ ul {
   border: 0;
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.3);
 }
-/* line 80, ../sass/layouts/_global-header.scss */
+/* line 85, ../sass/layouts/_global-header.scss */
 .global-header .search:focus {
   outline: none;
   box-shadow: 0 2px 0 0 rgba(126, 194, 255, 0.6);
 }
-/* line 86, ../sass/layouts/_global-header.scss */
+/* line 91, ../sass/layouts/_global-header.scss */
 .global-header .back {
   position: absolute;
   top: 20px;
@@ -797,17 +854,17 @@ ul {
   -o-transform: translateY(-200%);
   transform: translateY(-200%);
 }
-/* line 91, ../sass/layouts/_global-header.scss */
+/* line 96, ../sass/layouts/_global-header.scss */
 .global-header .back .now-viewing {
   margin-left: 20px;
   font: 18px "proxima-nova", sans-serif;
   color: #7ec2ff;
 }
-/* line 96, ../sass/layouts/_global-header.scss */
+/* line 101, ../sass/layouts/_global-header.scss */
 .global-header .back .now-viewing .term {
   font-weight: 800;
 }
-/* line 102, ../sass/layouts/_global-header.scss */
+/* line 107, ../sass/layouts/_global-header.scss */
 .global-header .sub-header {
   position: absolute;
   top: 110px;
@@ -820,11 +877,11 @@ ul {
   padding: 0 60px;
   box-sizing: border-box;
 }
-/* line 110, ../sass/layouts/_global-header.scss */
+/* line 115, ../sass/layouts/_global-header.scss */
 .global-header .sub-header .recommended {
   font-size: 13px;
 }
-/* line 113, ../sass/layouts/_global-header.scss */
+/* line 118, ../sass/layouts/_global-header.scss */
 .global-header .sub-header .recommended .label {
   display: inline-block;
   vertical-align: middle;
@@ -832,18 +889,18 @@ ul {
   font-weight: 800;
   color: #d8d8d8;
 }
-/* line 121, ../sass/layouts/_global-header.scss */
+/* line 126, ../sass/layouts/_global-header.scss */
 .global-header .sub-header .recommended .list {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 125, ../sass/layouts/_global-header.scss */
+/* line 130, ../sass/layouts/_global-header.scss */
 .global-header .sub-header .recommended .list li {
   float: left;
   margin-right: 10px;
   font-weight: 600;
 }
-/* line 133, ../sass/layouts/_global-header.scss */
+/* line 138, ../sass/layouts/_global-header.scss */
 .global-header .sub-header .analytics {
   display: none;
   float: right;

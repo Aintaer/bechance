@@ -15,6 +15,7 @@ define(['be', 'nbd/util/when'], function(be, when) {
 			return be.project.search({
 				q: term,
 				sort: 'views',
+        per_page: 25,
 				page: page
 			});
 		}))

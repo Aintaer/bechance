@@ -37,6 +37,11 @@
       
       opacity: 0;
     }
+    
+    .legend {
+      @include transition-delay(1s);
+      @include translateY(-100px);
+    }
   }
   
   .background {

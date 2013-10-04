@@ -18,6 +18,34 @@ body {
   background-color: black;
 }
 
+.legend {
+  @include transition(transform .5s .5s cubic-bezier(0.045, 0.685, 0.48, 0.975));
+  @include position(fixed, 110px 10px);
+  @include size(5px, 200px);
+
+  & > span {
+    font: 600 12px $primary-stack;
+    color: $lightgray;
+    text-transform: uppercase;
+    text-align: right;
+  }
+  
+  .colors {
+    @include position(absolute);
+    @include size(100%);
+    
+    @include background(linear-gradient(#FF7900 0%, #F4FF00 25%, #07FF00 40%, #00CCFF 60%, #0022FF 85%));
+  }
+  
+  .top-label {
+    @include position(absolute, 0px 20px, 1);
+  }
+  
+  .bottom-label {
+    @include position(absolute, 0 20px 0px, 1);
+  }
+}
+
 .map {
   @include size(100%);
   
