@@ -87,9 +87,6 @@ DAT.Globe = function(container, colorFn) {
 
   function init() {
 
-    container.style.color = '#fff';
-    container.style.font = '13px/20px Arial, sans-serif';
-
     var shader, uniforms, material;
     w = container.offsetWidth || window.innerWidth;
     h = container.offsetHeight || window.innerHeight;
@@ -262,6 +259,14 @@ DAT.Globe = function(container, colorFn) {
     }
   }
 
+  function clearPoints() {
+	  if (this.points) {
+		  scene.remove(this.points);
+		  delete this.points;
+		  delete this._baseGeometry;
+	  }
+  }
+
   function addPoint(lat, lng, size, color, subgeo) {
     var phi = (90 - lat) * Math.PI / 180;
     var theta = (0 - lng) * Math.PI / 180;
@@ -419,6 +424,7 @@ DAT.Globe = function(container, colorFn) {
 
   this.addData = addData;
   this.createPoints = createPoints;
+  this.clearPoints = clearPoints;
   this.renderer = renderer;
   this.scene = scene;
 
