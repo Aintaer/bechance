@@ -1,0 +1,29 @@
+/** ----------------------------------
+
+  Global Footer
+  -------------
+
+  Global footer layout.
+
+---------------------------------- */
+.global-footer {
+  @include position(fixed, 0 0 -20px 0px);
+  
+  width: 100%;
+  padding: 20px 0 40px 0;
+  
+  .background {
+    @include size(100%);
+    @include position(absolute, 0px 0px);
+    @include skew(0, 1deg);
+    
+    background-color: #222;
+  }
+  
+  .powered-by {
+    @include mask-icon('powered-by');
+    
+    margin: 0 auto;
+    background-color: white;
+  }
+}
