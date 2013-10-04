@@ -544,7 +544,6 @@ html {
 
 /* line 13, ../sass/layouts/_website.scss */
 body {
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2a2a2a), color-stop(100%, #000000));
   background: -webkit-linear-gradient(#2a2a2a, #000000);
   background: -moz-linear-gradient(#2a2a2a, #000000);
   background: -o-linear-gradient(#2a2a2a, #000000);
@@ -552,7 +551,81 @@ body {
   height: 100%;
 }
 
-/* line 20, ../sass/layouts/_website.scss */
+/* line 19, ../sass/layouts/_website.scss */
+.map {
+  width: 100%;
+  height: 100%;
+}
+/* line 22, ../sass/layouts/_website.scss */
+.map .starfield {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+}
+/* line 27, ../sass/layouts/_website.scss */
+.map .star {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  -webkit-animation: twinkle 5s infinite;
+  -moz-animation: twinkle 5s infinite;
+  -o-animation: twinkle 5s infinite;
+  animation: twinkle 5s infinite;
+  opacity: .2;
+  background-color: white;
+}
+
+@-moz-keyframes twinkle {
+  /* line 38, ../sass/layouts/_website.scss */
+  0%,100% {
+    opacity: .2;
+  }
+
+  /* line 42, ../sass/layouts/_website.scss */
+  50% {
+    opacity: .8;
+  }
+}
+
+@-webkit-keyframes twinkle {
+  /* line 38, ../sass/layouts/_website.scss */
+  0%,100% {
+    opacity: .2;
+  }
+
+  /* line 42, ../sass/layouts/_website.scss */
+  50% {
+    opacity: .8;
+  }
+}
+
+@-o-keyframes twinkle {
+  /* line 38, ../sass/layouts/_website.scss */
+  0%,100% {
+    opacity: .2;
+  }
+
+  /* line 42, ../sass/layouts/_website.scss */
+  50% {
+    opacity: .8;
+  }
+}
+
+@keyframes twinkle {
+  /* line 38, ../sass/layouts/_website.scss */
+  0%,100% {
+    opacity: .2;
+  }
+
+  /* line 42, ../sass/layouts/_website.scss */
+  50% {
+    opacity: .8;
+  }
+}
+
+/* line 48, ../sass/layouts/_website.scss */
 ul {
   margin: 0;
   padding: 0;

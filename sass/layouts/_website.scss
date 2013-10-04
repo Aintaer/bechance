@@ -16,6 +16,34 @@ body {
   height: 100%;
 }
 
+.map {
+  @include size(100%);
+  
+  .starfield {
+    @include position(fixed, 0px 0px);
+    @include size(100%);
+  }
+  
+  .star {
+    @include size(1px);
+    @include position(absolute);
+    @include animation(twinkle 5s infinite);
+    
+    opacity: .2;
+    background-color: white;
+  }
+}
+
+@include keyframes(twinkle) {
+  0%,100% {
+    opacity: .2;
+  }
+  
+  50% {
+    opacity: .8;
+  }
+}
+
 // Misc.
 ul {
   margin: 0;
