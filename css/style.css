@@ -512,8 +512,8 @@ p {
   Website layout. Contains mostly global website elements.
 
 ---------------------------------- */
-/* line 9, ../sass/layouts/_website.scss */
-html {
+/* line 13, ../sass/layouts/_website.scss */
+body {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2a2a2a), color-stop(100%, #000000));
   background: -webkit-linear-gradient(#2a2a2a, #000000);
   background: -moz-linear-gradient(#2a2a2a, #000000);
@@ -521,7 +521,7 @@ html {
   background: linear-gradient(#2a2a2a, #000000);
 }
 
-/* line 17, ../sass/layouts/_website.scss */
+/* line 18, ../sass/layouts/_website.scss */
 ul {
   margin: 0;
   padding: 0;
@@ -553,9 +553,10 @@ ul {
   -ms-transform: skew(0, 0.5deg);
   -o-transform: skew(0, 0.5deg);
   transform: skew(0, 0.5deg);
+  opacity: .95;
   background-color: #111111;
 }
-/* line 20, ../sass/layouts/_global-header.scss */
+/* line 21, ../sass/layouts/_global-header.scss */
 .global-header .background-alt {
   position: absolute;
   top: 35px;
@@ -570,13 +571,13 @@ ul {
   opacity: .35;
   background-color: #404147;
 }
-/* line 29, ../sass/layouts/_global-header.scss */
+/* line 30, ../sass/layouts/_global-header.scss */
 .global-header .title {
   position: absolute;
   top: 20px;
   left: 60px;
 }
-/* line 33, ../sass/layouts/_global-header.scss */
+/* line 34, ../sass/layouts/_global-header.scss */
 .global-header .search {
   position: absolute;
   top: 20px;
@@ -594,12 +595,12 @@ ul {
   border: 0;
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.3);
 }
-/* line 46, ../sass/layouts/_global-header.scss */
+/* line 47, ../sass/layouts/_global-header.scss */
 .global-header .search:focus {
   outline: none;
   box-shadow: 0 2px 0 0 rgba(126, 194, 255, 0.6);
 }
-/* line 52, ../sass/layouts/_global-header.scss */
+/* line 53, ../sass/layouts/_global-header.scss */
 .global-header .sub-header {
   display: none;
 }
@@ -617,10 +618,11 @@ ul {
   position: fixed;
   bottom: -20px;
   left: 0px;
+  opacity: .5;
   width: 100%;
   padding: 20px 0 40px 0;
 }
-/* line 15, ../sass/layouts/_global-footer.scss */
+/* line 16, ../sass/layouts/_global-footer.scss */
 .global-footer .background {
   width: 100%;
   height: 100%;
@@ -634,7 +636,7 @@ ul {
   transform: skew(0, 1deg);
   background-color: #222;
 }
-/* line 23, ../sass/layouts/_global-footer.scss */
+/* line 24, ../sass/layouts/_global-footer.scss */
 .global-footer .powered-by {
   width: 170px;
   height: 16px;

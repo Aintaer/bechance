@@ -13,6 +13,7 @@
     @include position(absolute, -20px 0 0 0px);
     @include size(100%, 100px);
     @include skew(0, .5deg);
+    opacity: .95;
     
     background-color: #111111;
   }

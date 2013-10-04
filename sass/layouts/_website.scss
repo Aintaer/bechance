@@ -7,10 +7,11 @@
 
 ---------------------------------- */
 html {
-  @include background(linear-gradient(#2A2A2A, black));
+  
 }
 
 body {
+  @include background(linear-gradient(#2A2A2A, black));
 }
 
 // Misc.
