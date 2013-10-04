@@ -7,12 +7,18 @@ define(['globe'], function(DAT) {
 	function add(data, opts) {
 		this.globe.addData(data, opts || {
 			format: 'magnitude',
-			name: 'behanceprojects'
+			name: 'behanceprojects',
+      animated: true
 		});
 		this.globe.createPoints();
 	}
+  
+  function empty() {
+    this.globe.renderer.clear()
+  }
 
 	return { 
+    empty: empty,
 		init : init,
 		add : add
 	};

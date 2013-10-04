@@ -16,12 +16,15 @@ function(search, world, aggregate, GlobalHeader, ProgressBar, StarsView) {
 	function doSearch (term) {
     progress.start();
     
-		search(term)
-		.then(aggregate)
-		.then(function(data) {
-      progress.finish();
-			world.add(data);
-		});
+    world.empty();
+    
+    search(term)
+    .then(aggregate)
+    .then(function(data) {
+          progress.finish();
+          localStorage.setItem('data', JSON.stringify(data))
+      world.add(data);
+    });
 	}
 
 	function init() {

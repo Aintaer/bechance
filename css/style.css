@@ -926,10 +926,10 @@ ul {
 }
 /* line 37, ../sass/layouts/_progress.scss */
 .progress .fast {
-  -webkit-transition: width 3s cubic-bezier(0.045, 0.685, 0.48, 0.975);
-  -moz-transition: width 3s cubic-bezier(0.045, 0.685, 0.48, 0.975);
-  -o-transition: width 3s cubic-bezier(0.045, 0.685, 0.48, 0.975);
-  transition: width 3s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  -webkit-transition: width 10s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  -moz-transition: width 10s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  -o-transition: width 10s cubic-bezier(0.045, 0.685, 0.48, 0.975);
+  transition: width 10s cubic-bezier(0.045, 0.685, 0.48, 0.975);
 }
 /* line 41, ../sass/layouts/_progress.scss */
 .progress .slow {
